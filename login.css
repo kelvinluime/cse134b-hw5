@@ -1,6 +1,8 @@
 body {
     text-align: center;
-    background-image: url('christmas-bg.jpeg');
+    background: url('christmas-bg.jpeg') no-repeat;
+    height: 100%;
+    width: 100%;
 }
 
 #page-title {
@@ -63,12 +65,44 @@ body {
     background: transparent;
     border-bottom: 0.1px solid #dddddd;
     width: 100%;
-    color: #333333;
     padding: 5px 0 5px 0;
+    font-family: 'Barlow', sans-serif;
+    font-size: 1.5em;
+    caret-color: #333333;
+}
+
+#login-button {
+    margin-top: 3em;
+    background-color: #666666;
+    width: 150px;
+    height: 36px;
+    border-radius: 20px;
+    border: 0;
+    color: white;
+    font-size: 1.4em;
+    font-family: 'Barlow', sans-serif;
+}
+
+#login-button:hover {
+    cursor: pointer;
 }
 
 label {
     float: left;
+}
+
+#sign-up {
+    margin-top: 6em;
+    font-size: 0.7em;
+    color: #333333;
+    font-family: 'Barlow', sans-serif;
+}
+
+#sign-up>a {
+    color: #E25C57;
+    text-decoration: none;
+    border-bottom: 1px solid #dddddd;
+    padding-bottom: 2px;
 }
 
 #login-form {
@@ -93,4 +127,33 @@ label {
     font-weight: 500;
     font-weight: 100;
     font-family: 'Barlow', sans-serif;
+}
+
+#intro-text-nav {
+    margin-top: 2em;
+}
+
+#intro-text-nav>ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#intro-text-nav li {
+    height: 8px;
+    display: inline-block;
+    border-radius: 8px;
+    margin: 2px;
+    background-color: white;
+}
+
+#intro-1 {
+    width: 16px;
+}
+
+#intro-2,
+#intro-3,
+#intro-4 {
+    width: 8px;
+    opacity: 30%;
 }
