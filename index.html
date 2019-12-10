@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>XmasWishlist</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Caveat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Barlow:200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <script src="purify.min.js"></script>
+    <script src="index.js"></script>
+</head>
+
+<body>
+    <div id="page-container">
+        <header id="page-header">
+            <p id="page-title">XmasWishlist</p>
+            <img id="logout" src="exit.svg">
+        </header>
+        <ul id="wishlist">
+            <li class="wishlist-item">
+                <img class="wishlist-item-image" src="camera.jpg">
+                <div class="wishlist-item-description">
+                    <p class="wishlist-item-category">Category: Diary</p>
+                    <p class="wishlist-item-name">Name: Milk</p>
+                </div>
+                <div class="wishlist-item-buttons-container">
+                    <img class="wishlist-item-info-button" src="search.svg">
+                    <img class="wishlist-item-delete-button" src="delete.svg">
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div id="grey-out"></div>
+    <form id="info-dialog">
+        <img id="info-dialog-image" src="camera.jpg">
+        <div id="info-dialog-info-container">
+            <label for="name">Name</label><br>
+            <input type="text" disabled placeholder="Milk"><br>
+            <label for="category">Category</label><br>
+            <input type="text" disabled placeholder="Diary"><br>
+            <label for="price">Price</label><br>
+            <input disabled placeholder="$1.99"><br>
+        </div>
+        <div id="info-dialog-comment-container">
+            <label for="comment">Comment</label><br>
+            <textarea id="info-dialog-comment" disabled placeholder="This milk tastes good!"></textarea>
+        </div>
+        <div id="info-dialog-buttons-container">
+            <input type="button" class="info-dialog-button" value="Cancel" onclick="handleClickInfoDialogCancel()">;
+            <input disabled class="info-dialog-button" type="submit">
+        </div>
+    </form>
+</body>
+
+<footer>
+    <div style="display:none;">Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+    </div>
+    <div style="display:none;">Icons made by <a href="https://www.flaticon.com/authors/icongeek26" title="Icongeek26">Icongeek26</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+    <div style="display:none;">Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+    </div>
+    <div style="display:none;">Icons made by <a href="https://www.flaticon.com/authors/pixelmeetup" title="Pixelmeetup">Pixelmeetup</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+    <div style="display:none;">Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+</footer>
+
+</html>
