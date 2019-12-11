@@ -8,7 +8,58 @@
     <link href="https://fonts.googleapis.com/css?family=Barlow:200&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="index.css">
     <script src="purify.min.js"></script>
+    <script src="apiClient.js"></script>
     <script src="index.js"></script>
+
+    <template id="wishlist-item-template">
+        <li class="wishlist-item">
+            <img class="wishlist-item-image" src="camera.jpg">
+            <div class="wishlist-item-description">
+                <p class="wishlist-item-name">Milk</p>
+            </div>
+            <div class="wishlist-item-buttons-container">
+                <img class="wishlist-item-info-button" src="search.svg">
+                <img class="wishlist-item-delete-button" src="delete.svg">
+            </div>
+        </li>
+    </template>
+
+    <template id="info-dialog-container-template">
+        <div id="info-dialog-container">
+            <form id="info-dialog">
+                <img id="info-dialog-image" src="camera.jpg" onclick="handleClickInfoDialogImage()">
+                <div id="info-dialog-info-container">
+                    <label for="name">Name</label><br>
+                    <input id="info-dialog-name-input" type="text" placeholder="e.g. Milk" oninput="handleInfoDialogInput()"><br>
+                    <label for="category">Category</label><br>
+                    <input id="info-dialog-category-input" type="text" placeholder="e.g. Diary" oninput="handleInfoDialogInput()"><br>
+                    <label for="price">Price</label><br>
+                    <input id="info-dialog-price-input" type="number" min="0.00" max="1000.00" step="0.01" placeholder="e.g. 1.99" oninput="handleInfoDialogInput()"><br>
+                </div>
+                <div id="info-dialog-comment-container">
+                    <label for="comment">Comment</label><br>
+                    <textarea id="info-dialog-comment" placeholder="Type your comment here..." oninput="handleInfoDialogInput()"></textarea>
+                </div>
+                <div class="buttons-container">
+                    <input class="dialog-button" id="info-dialog-submit-button" type="submit" onclick="handleInfoDialogSubmit()">
+                    <input type="button" class="dialog-button" value="Cancel"
+                        onclick="handleClickInfoDialogCancelButton()">
+                </div>
+            </form>
+        </div>
+    </template>
+
+    <template id="url-dialog-container-template">
+        <div id="url-dialog-container">
+            <label for="image-url">Please enter an URL to the image:</label><br>
+            <input id="image-url-input" oninput="handleImageUrlInput(this)" autofocus type="text" placeholder="e.g. https://ucsd.edu/_resources/img/logo_UCSD.png" </form> <div
+                class="dialog-buttons-container">
+            <input class="dialog-button" id="url-dialog-submit-button" type="submit" onclick="handleClickUrlDialogSubmitButton()">
+            <input class="dialog-button" type="button" value="Cancel" onclick="handleClickUrlDialogCancelButton()">
+        </div>
+        </form>
+        </div>
+    </template>
 </head>
 
 <body>
@@ -18,39 +69,20 @@
             <img id="logout" src="exit.svg">
         </header>
         <ul id="wishlist">
-            <li class="wishlist-item">
+            <!-- <li class="wishlist-item">
                 <img class="wishlist-item-image" src="camera.jpg">
                 <div class="wishlist-item-description">
-                    <p class="wishlist-item-category">Category: Diary</p>
-                    <p class="wishlist-item-name">Name: Milk</p>
+                    <p class="wishlist-item-name">Milk</p>
                 </div>
                 <div class="wishlist-item-buttons-container">
                     <img class="wishlist-item-info-button" src="search.svg">
                     <img class="wishlist-item-delete-button" src="delete.svg">
                 </div>
-            </li>
+            </li> -->
         </ul>
+        <img src="plus.svg" id="add-button" onclick="handleClickAddButton()">
     </div>
     <div id="grey-out"></div>
-    <form id="info-dialog">
-        <img id="info-dialog-image" src="camera.jpg">
-        <div id="info-dialog-info-container">
-            <label for="name">Name</label><br>
-            <input type="text" disabled placeholder="Milk"><br>
-            <label for="category">Category</label><br>
-            <input type="text" disabled placeholder="Diary"><br>
-            <label for="price">Price</label><br>
-            <input disabled placeholder="$1.99"><br>
-        </div>
-        <div id="info-dialog-comment-container">
-            <label for="comment">Comment</label><br>
-            <textarea id="info-dialog-comment" disabled placeholder="This milk tastes good!"></textarea>
-        </div>
-        <div id="info-dialog-buttons-container">
-            <input type="button" class="info-dialog-button" value="Cancel" onclick="handleClickInfoDialogCancel()">;
-            <input disabled class="info-dialog-button" type="submit">
-        </div>
-    </form>
 </body>
 
 <footer>
@@ -60,7 +92,9 @@
     <div style="display:none;">Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
     </div>
     <div style="display:none;">Icons made by <a href="https://www.flaticon.com/authors/pixelmeetup" title="Pixelmeetup">Pixelmeetup</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
-    <div style="display:none;">Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+    <div style="display:none;">Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+    </div>
+    <div style="display:none;">Icons made by <a href="https://www.flaticon.com/authors/alfredo-hernandez" title="Alfredo Hernandez">Alfredo Hernandez</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
 </footer>
 
 </html>
