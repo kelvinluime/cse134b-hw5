@@ -8,7 +8,17 @@
     <link href="https://fonts.googleapis.com/css?family=Barlow:200&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="login.css">
     <script src="purify.min.js"></script>
+    <script src="apiClient.js"></script>
     <script src="login.js"></script>
+
+    <template id="dialog-container-template">
+        <div id="dialog-container">
+            <p>placeholder text</p>
+            <div class="dialog-buttons-container">
+                <button class="dialog-button" onclick="handleClickDialogOkButton()">Ok</button>
+            </div>
+        </div>
+    </template>
 </head>
 
 <body>
@@ -31,21 +41,22 @@
             <form id="login-form">
                 <label for="login">Username or Email</label>
                 <br>
-                <input class="text-input" type="text" spellcheck="false" autofocus>
+                <input id="login-input" class="text-input" type="text" spellcheck="false" autofocus>
                 <br>
                 <label for="password">Password</label>
                 <br>
-                <input class="text-input" type="password">
-                <input id="login-button" type="submit" value="Sign in">
+                <input id="password-input" class="text-input" type="password">
+                <input id="login-button" type="button" onclick="handleClickSignin()" value="Sign in">
             </form>
             <p id="sign-up">New kid in town? <a href="signup.html">Create Account</a></p>
         </div>
     </div>
-
+    <div id="grey-out"></div>
 </body>
 
 <footer>
-    <div style="display:none;">Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+    <div style="display:none;">Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+    </div>
 </footer>
 
 </html>

@@ -8,7 +8,17 @@
     <link href="https://fonts.googleapis.com/css?family=Barlow:200&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="signup.css">
     <script src="purify.min.js"></script>
-    <script src="login.js"></script>
+    <script src="apiClient.js"></script>
+    <script src="signup.js"></script>
+
+    <template id="dialog-container-template">
+        <div id="dialog-container">
+            <p>placeholder text</p>
+            <div class="dialog-buttons-container">
+                <button class="dialog-button" onclick="handleClickDialogOkButton()">Ok</button>
+            </div>
+        </div>
+    </template>
 </head>
 
 <body>
@@ -29,23 +39,27 @@
             <p id="header">XmasWishlist</p>
             <p id="welcome">Sign Up</p>
             <form id="login-form">
-                <label for="login">Username or Email</label>
+                <label for="username">Username</label>
                 <br>
-                <input class="text-input" type="text" spellcheck="false" autofocus>
+                <input id="username-input" class="text-input" type="text" spellcheck="false" autofocus>
+                <br>
+                <label for="email">Email</label>
+                <br>
+                <input id="email-input" class="text-input" type="text" spellcheck="false" autofocus>
                 <br>
                 <label for="password">Password</label>
                 <br>
-                <input class="text-input" type="password">
+                <input id="password-input" class="text-input" type="password">
                 <br>
                 <label for="confirm-password">Confirm Password</label>
                 <br>
-                <input class="text-input" type="password">
-                <input id="signup-button" type="submit" value="Sign up">
+                <input id="confirm-password-input" class="text-input" type="password">
+                <input id="signup-button" type="button" value="Sign up" onclick="handleClickSignup()">
             </form>
             <p id="sign-in">Already have an account? <a href="login.html">Sign In</a></p>
         </div>
     </div>
-
+    <div id="grey-out"></div>
 </body>
 
 <footer>

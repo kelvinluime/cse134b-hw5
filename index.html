@@ -7,6 +7,10 @@
     <link href="https://fonts.googleapis.com/css?family=Caveat&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Barlow:200&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="index.css">
+    <script>
+        // window.open('login.html', '_self');
+        // check if access token is availabile, else windo open login page
+    </script>
     <script src="purify.min.js"></script>
     <script src="apiClient.js"></script>
     <script src="index.js"></script>
@@ -18,46 +22,61 @@
                 <p class="wishlist-item-name">Milk</p>
             </div>
             <div class="wishlist-item-buttons-container">
-                <img class="wishlist-item-info-button" src="search.svg">
-                <img class="wishlist-item-delete-button" src="delete.svg">
+                <img class="wishlist-item-info-button" onclick="handleClickWishlistItemInfoButton(this)" src="search.svg">
+                <img class="wishlist-item-delete-button" onclick="handleClickWishlistItemDeleteButton(this)" src="delete.svg">
             </div>
         </li>
     </template>
 
+    <template id="delete-dialog-container-template">
+        <div id="delete-dialog-container">
+            <p>Are you sure you want to delete this wishitem?</p>
+            <div class="dialog-buttons-container">
+                <button class="dialog-button" onclick="handleClickDeleteDialogYesButton()">Yes</button>
+                <button class="dialog-button" onclick="handleClickDeleteDialogNoButton()">No</button>
+            </div>
+        </div>
+    </template>
+
     <template id="info-dialog-container-template">
         <div id="info-dialog-container">
-            <form id="info-dialog">
+            <div id="info-dialog">
                 <img id="info-dialog-image" src="camera.jpg" onclick="handleClickInfoDialogImage()">
                 <div id="info-dialog-info-container">
                     <label for="name">Name</label><br>
-                    <input id="info-dialog-name-input" type="text" placeholder="e.g. Milk" oninput="handleInfoDialogInput()"><br>
+                    <input id="info-dialog-name-input" type="text" placeholder="e.g. Milk"
+                        oninput="handleInfoDialogInput()"><br>
                     <label for="category">Category</label><br>
-                    <input id="info-dialog-category-input" type="text" placeholder="e.g. Diary" oninput="handleInfoDialogInput()"><br>
+                    <input id="info-dialog-category-input" type="text" placeholder="e.g. Diary"
+                        oninput="handleInfoDialogInput()"><br>
                     <label for="price">Price</label><br>
-                    <input id="info-dialog-price-input" type="number" min="0.00" max="1000.00" step="0.01" placeholder="e.g. 1.99" oninput="handleInfoDialogInput()"><br>
+                    <input id="info-dialog-price-input" type="number" min="0.00" max="1000.00" step="0.01"
+                        placeholder="e.g. 1.99" oninput="handleInfoDialogInput()"><br>
                 </div>
                 <div id="info-dialog-comment-container">
                     <label for="comment">Comment</label><br>
-                    <textarea id="info-dialog-comment" placeholder="Type your comment here..." oninput="handleInfoDialogInput()"></textarea>
+                    <textarea id="info-dialog-comment" placeholder="Type your comment here..."
+                        oninput="handleInfoDialogInput()"></textarea>
                 </div>
                 <div class="buttons-container">
-                    <input class="dialog-button" id="info-dialog-submit-button" type="submit" onclick="handleInfoDialogSubmit()">
+                    <input class="dialog-button" id="info-dialog-submit-button" type="button" value="submit"
+                        onclick="handleInfoDialogSubmit()">
                     <input type="button" class="dialog-button" value="Cancel"
                         onclick="handleClickInfoDialogCancelButton()">
                 </div>
-            </form>
+            </div>
         </div>
     </template>
 
     <template id="url-dialog-container-template">
         <div id="url-dialog-container">
             <label for="image-url">Please enter an URL to the image:</label><br>
-            <input id="image-url-input" oninput="handleImageUrlInput(this)" autofocus type="text" placeholder="e.g. https://ucsd.edu/_resources/img/logo_UCSD.png" </form> <div
+            <input id="image-url-input" oninput="handleImageUrlInput(this)" autofocus type="text"
+                placeholder="e.g. https://ucsd.edu/_resources/img/logo_UCSD.png" </form> <div
                 class="dialog-buttons-container">
-            <input class="dialog-button" id="url-dialog-submit-button" type="submit" onclick="handleClickUrlDialogSubmitButton()">
+            <input class="dialog-button" id="url-dialog-submit-button" type="submit"
+                onclick="handleClickUrlDialogSubmitButton()">
             <input class="dialog-button" type="button" value="Cancel" onclick="handleClickUrlDialogCancelButton()">
-        </div>
-        </form>
         </div>
     </template>
 </head>
@@ -66,20 +85,9 @@
     <div id="page-container">
         <header id="page-header">
             <p id="page-title">XmasWishlist</p>
-            <img id="logout" src="exit.svg">
+            <img id="logout" src="exit.svg" onclick="handleClickExitButton()">
         </header>
-        <ul id="wishlist">
-            <!-- <li class="wishlist-item">
-                <img class="wishlist-item-image" src="camera.jpg">
-                <div class="wishlist-item-description">
-                    <p class="wishlist-item-name">Milk</p>
-                </div>
-                <div class="wishlist-item-buttons-container">
-                    <img class="wishlist-item-info-button" src="search.svg">
-                    <img class="wishlist-item-delete-button" src="delete.svg">
-                </div>
-            </li> -->
-        </ul>
+        <ul id="wishlist"></ul>
         <img src="plus.svg" id="add-button" onclick="handleClickAddButton()">
     </div>
     <div id="grey-out"></div>
