@@ -17,7 +17,8 @@ const handleClickSignin = () => {
         login(data).then(
             res => {
                 res = JSON.parse(res.response);
-                console.log(res);
+                localStorage.setItem('userId', res.id);
+                window.open('index.html', '_self');
             },
             err => {
                 err = JSON.parse(err.response).error;

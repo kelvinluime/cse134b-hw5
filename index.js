@@ -1,5 +1,9 @@
 const getAccessToken = () => {
-    return 'Dsa1lAPUhfrGMRJ13UOt1G0MblFYsR9qlhA2dT7rycja9eFm7YBmhOUFofSffdsy';
+    if (localStorage.getItem('userId') === null) {
+        window.open('login.html', '_self');
+        return;
+    }
+    return localStorage.getItem('userId');
 }
 
 const displayGreyOut = (zIndex) => {
@@ -261,8 +265,14 @@ const handleClickDeleteDialogNoButton = () => {
 }
 
 const handleClickExitButton = () => {
-    // send request to logout & remove access token from local storage
-    window.open('login.html', '_self');
+    logout(getAccessToken()).then(
+        res => {
+            window.open('login.html', '_self');
+        },
+        err => {
+
+        }
+    )
 }
 
 window.onload = () => {
